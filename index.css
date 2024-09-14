@@ -1,0 +1,12 @@
+nav{
+    
+     background-color: aquamarine;
+}
+.logo{
+     
+     color: rgb(154, 245, 43);
+}
+.links{
+     display: flex;
+     background-color: brown;
+}

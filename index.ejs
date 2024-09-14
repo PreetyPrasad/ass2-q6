@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <title>Home</title>
+    <style>
+       
+        .links{
+            margin-left: 1200px;
+            text-decoration: none;
+            font-size: larger;
+            line-height: 50px;
+        }
+        .links a{
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            padding: 20px;
+        }
+        .cart{
+            padding: 20px;
+            margin-left: 20px;
+            display: flex;
+        }
+        .cart li{
+            padding: 20px;
+            margin-left: 20px;
+         
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <nav style="background-color: rgb(118,71,10);height:50px;">
+        <div class="links">
+            <a href="/categories">Manage Categories</a>
+            <a href="/products">Manage Products</a>
+        </div>
+    </nav>
+
+    <h1 style="color: rgb(123, 4, 125);text-align:center;">CATEGORIES AND PRODUCTS</h1>
+    
+    <h2 style="font-size:30px">Categories</h2>
+    <ul style="font-size:30px">
+        <% categories.forEach(category => { %>
+            <li><%= category.name %></li>
+        <% }) %>
+    </ul>
+    
+    <h2 style="font-size:30px">Products</h2>
+    <ul class="cart">
+        <% products.forEach(product => { %>
+            <li>
+                <% product.images.forEach(image => { %>
+                    <img src="/<%= image %>" alt="Product Image" width="200" height="200">
+                <% }) %>
+                <h3 style="font-size:30px"><%= product.name %></h3>
+                <p style="font-size:20px">Category: <%= product.category.name %></p>
+                <p style="font-size:20px">Price: $<%= product.price %></p>
+                <p style="font-size:20px">Images:</p>
+                <!-- <% product.images.forEach(image => { %>
+                    <img src="/<%= image %>" alt="Product Image" width="100">
+                <% }) %> -->
+            </li>
+        <% }) %>
+    </ul>
+    
+    <!-- <a href="/categories">Manage Categories</a>
+    <a href="/products">Manage Products</a> -->
+</body>
+</html>

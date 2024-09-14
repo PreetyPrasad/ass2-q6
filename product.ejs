@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Products</title>
+    <style>
+        .links{
+            margin-left: 1200px;
+            text-decoration: none;
+            font-size: larger;
+            line-height: 50px;
+        }
+        .links a{
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav style="background-color: rgb(118,71,10);height:50px;">
+        <div class="links">
+            <a href="/categories">Manage Categories</a>
+            <a href="/products">Manage Products</a>
+        </div>
+    </nav>
+    <h1>Manage Products</h1>
+    
+    <h2>Products</h2>
+    <ul>
+        <% products.forEach(product => { %>
+            <li>
+                <h3><%= product.name %></h3>
+                <p>Category: <%= product.category.name %></p>
+                <p>Price: $<%= product.price %></p>
+                <p>Images:</p>
+                <% product.images.forEach(image => { %>
+                    <img src="/<%= product.images %>" alt="Product Image" width="100"> 
+                <% }) %>
+                <form action="/products/delete/<%= product._id %>" method="POST" style="display:inline;">
+                    <button type="submit">Delete</button>
+                </form>
+                <a href="/products/edit/<%= product._id %>">Edit</a>
+            </li>
+        <% }) %>
+    </ul>
+    
+    <h2>Add New Product</h2>
+    <!-- <a href="/products/add">Add Product</a>
+    
+    <a href="/">Back to Home</a> -->
+</body>
+</html>
